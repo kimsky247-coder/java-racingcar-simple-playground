@@ -4,10 +4,12 @@ import java.util.List;
 public class Race {
     private List<Car> cars;
     private int rounds;
+    private MoveCar moveCar;
 
-    public Race() {
+    public Race(MoveCar moveCar) {
         this.cars = new ArrayList<>();
         rounds = 0;
+        this.moveCar = moveCar;
     }
 
     public void addCar(Car car) {
@@ -21,28 +23,21 @@ public class Race {
 
     public void startRace() {
         for (int i = 0; i < rounds; i++) {
-            runRace();
+            runRound();
         }
     }
 
-    private void runRace() {
+    private void runRound() {
         for (Car car : cars) {
-            int randomNumber  = car.generateRandomNumber();
-            car.carMove(randomNumber);
+            moveCar.tryMove(car);
+
         }
     }
 
     private int getMaxPosition() {
         int maxPosition = 0;
         for (Car car : cars) {
-            maxPosition = comparisonPosition(maxPosition, car);
-        }
-        return maxPosition;
-    }
-
-    private int comparisonPosition(int maxPosition, Car car) {
-        if (car.getPosition() > maxPosition) {
-            maxPosition = car.getPosition();
+            maxPosition = Math.max(maxPosition, car.getPosition());
         }
         return maxPosition;
     }
@@ -51,7 +46,7 @@ public class Race {
         int maxPosition = getMaxPosition();
         List<String> winners = new ArrayList<>();
         for (Car car : cars) {
-          addWinner(maxPosition, car, winners);
+            addWinner(maxPosition, car, winners);
         }
         return winners;
     }

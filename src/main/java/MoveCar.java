@@ -24,5 +24,4 @@ public class MoveCar {
         return randomNumber >= MOVE_THRESHOLD;
     }
 
-
 }

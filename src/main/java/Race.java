@@ -20,7 +20,6 @@ public class Race {
         this.rounds = rounds;
     }
 
-
     public void startRace() {
         for (int i = 0; i < rounds; i++) {
             runRound();
@@ -30,7 +29,6 @@ public class Race {
     private void runRound() {
         for (Car car : cars) {
             moveCar.tryMove(car);
-
         }
     }
 
@@ -48,6 +46,7 @@ public class Race {
         for (Car car : cars) {
             addWinner(maxPosition, car, winners);
         }
+
         return winners;
     }
 

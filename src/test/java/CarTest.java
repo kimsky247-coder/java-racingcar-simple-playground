@@ -16,7 +16,7 @@ public class CarTest {
     }
 
     @Test
-    void moveFoward_호출시_위치_증가() {
+    void moveForward_호출시_위치_증가() {
         Car car = new Car("TestCar");
 
         car.moveForward();

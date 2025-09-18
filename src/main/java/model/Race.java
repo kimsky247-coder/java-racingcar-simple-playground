@@ -1,14 +1,13 @@
+package model;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Race {
     private List<Car> cars;
-    private int rounds;
     private MoveCar moveCar;
 
     public Race(MoveCar moveCar) {
         this.cars = new ArrayList<>();
-        rounds = 0;
         this.moveCar = moveCar;
     }
 
@@ -16,17 +15,7 @@ public class Race {
         this.cars.add(car);
     }
 
-    public void defineRounds(int rounds) {
-        this.rounds = rounds;
-    }
-
-    public void startRace() {
-        for (int i = 0; i < rounds; i++) {
-            runRound();
-        }
-    }
-
-    private void runRound() {
+    public void runRound() {
         for (Car car : cars) {
             moveCar.tryMove(car);
         }
@@ -46,7 +35,6 @@ public class Race {
         for (Car car : cars) {
             addWinner(maxPosition, car, winners);
         }
-
         return winners;
     }
 
@@ -55,6 +43,10 @@ public class Race {
             winners.add(car.getCarName());
         }
 
+    }
+
+    public List<Car> getCars() {
+        return cars;
     }
 
 }

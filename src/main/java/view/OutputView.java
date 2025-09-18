@@ -1,7 +1,5 @@
 package view;
-
 import model.Car;
-
 import java.util.List;
 
 public class OutputView {
@@ -29,7 +27,7 @@ public class OutputView {
     }
 
     public static void printWinners(List<String> winners) {
-        System.out.println(String.join(", ", winners) + "가 최종우승 하였습니다.");
+        System.out.println(String.join(", ", winners) + "가 최종 우승했습니다.");
     }
 
 }

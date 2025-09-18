@@ -17,7 +17,7 @@ public class MoveCar {
         }
     }
 
-    public int generateRandomNumber() {
+    private int generateRandomNumber() {
         return this.random.nextInt(10);
     }
 

@@ -1,3 +1,6 @@
+import model.Car;
+import model.MoveCar;
+import model.Race;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -7,7 +10,7 @@ import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@DisplayName("Race 클래스 테스트")
+@DisplayName("model.Race 클래스 테스트")
 public class RaceTest {
     private Race race;
     private Car car1, car2, car3;

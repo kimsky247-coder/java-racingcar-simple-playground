@@ -1,16 +1,23 @@
 package controller;
-import model.Car;
-import model.MoveCar;
-import model.Race;
+
+import model.*;
 import view.InputView;
 import view.OutputView;
-import java.util.Random;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class RacingGameController {
-    public void run() {
-        Race race = new Race(new MoveCar(new Random()));
+    private final NumberGenerator numberGenerator;
 
-        setupCars(race);
+    public RacingGameController(NumberGenerator numberGenerator) {
+        this.numberGenerator = numberGenerator;
+    }
+
+    public void run() {
+        Cars cars = setupCars();
+        Race race = new Race(cars, new MoveCarStrategy(numberGenerator));
+
         int rounds = InputView.readRounds();
         OutputView.printRaceStartMessage();
         runRace(race, rounds);
@@ -19,14 +26,16 @@ public class RacingGameController {
         InputView.close();
     }
 
-    private void setupCars(Race race) {
+    private Cars setupCars() {
         String[] carNames = InputView.readCarNames();
+        List<Car> carList = new ArrayList<>();
         for (String name : carNames) {
-            race.addCar(new Car(name.trim()));
+            carList.add(Car.fromName(name));
         }
+        return new Cars(carList);
     }
 
-    public void runRace(Race race, int rounds) {
+    private void runRace(Race race, int rounds) {
         for (int i = 0; i < rounds; i++) {
             race.runRound();
             OutputView.printRoundResult(race.getCars());

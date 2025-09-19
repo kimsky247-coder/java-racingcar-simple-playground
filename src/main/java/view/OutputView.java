@@ -1,5 +1,7 @@
 package view;
+
 import model.Car;
+
 import java.util.List;
 
 public class OutputView {
@@ -21,9 +23,7 @@ public class OutputView {
     }
 
     private static void printPosition(int position) {
-        for (int i = 0; i < position; i++) {
-            System.out.print("-");
-        }
+        System.out.print("-".repeat(position));
     }
 
     public static void printWinners(List<String> winners) {

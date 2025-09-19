@@ -1,24 +1,20 @@
 package model;
-import java.util.Random;
 
-public class MoveCar {
+public class MoveCarStrategy {
     private static final int MOVE_THRESHOLD = 4;
-    private final Random random;
+    private static final int RANDOM_NUMBER_BOUND = 10;
+    private final NumberGenerator numberGenerator;
 
-    public MoveCar(Random random) {
-        this.random = random;
+    public MoveCarStrategy(NumberGenerator numberGenerator) {
+        this.numberGenerator = numberGenerator;
     }
 
     public void tryMove(Car car) {
-        int randomNumber = generateRandomNumber();
+        int randomNumber = numberGenerator.generate();
 
         if (shouldMove(randomNumber)) {
             car.moveForward();
         }
-    }
-
-    private int generateRandomNumber() {
-        return this.random.nextInt(10);
     }
 
     private boolean shouldMove(int randomNumber) {

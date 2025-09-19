@@ -3,13 +3,18 @@ package model;
 public class Car {
     private static final int MOVE_DISTANCE = 1;
     private static final int MAX_NAME_LENGTH = 5;
-    private String carName;
+    private final String carName;
     private int position;
 
-    public Car(String carName) {
-        validateName(carName);
-        this.carName = carName;
+    private Car(String name) {
+        String trimmedName = name.trim();
+        validateName(trimmedName);
+        this.carName = trimmedName;
         this.position = 0;
+    }
+
+    public static Car fromName(String name) {
+        return new Car(name);
     }
 
     private void validateName(String name) {
@@ -22,12 +27,12 @@ public class Car {
         position += MOVE_DISTANCE;
     }
 
-    public int getPosition() {
-        return position;
-    }
-
     public String getCarName() {
         return carName;
+    }
+
+    public int getPosition() {
+        return position;
     }
 
 }

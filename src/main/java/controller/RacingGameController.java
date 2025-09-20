@@ -1,6 +1,10 @@
 package controller;
 
-import model.*;
+import model.Car;
+import model.Cars;
+import model.MoveCarStrategy;
+import model.NumberGenerator;
+import model.Race;
 import view.InputView;
 import view.OutputView;
 
@@ -8,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingGameController {
+
     private final NumberGenerator numberGenerator;
 
     public RacingGameController(NumberGenerator numberGenerator) {
@@ -28,11 +33,7 @@ public class RacingGameController {
 
     private Cars setupCars() {
         String[] carNames = InputView.readCarNames();
-        List<Car> carList = new ArrayList<>();
-        for (String name : carNames) {
-            carList.add(Car.fromName(name));
-        }
-        return new Cars(carList);
+        return Cars.fromNames(List.of(carNames));
     }
 
     private void runRace(Race race, int rounds) {

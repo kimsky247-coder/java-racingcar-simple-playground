@@ -1,14 +1,22 @@
 package model;
 
-import java.util.List;
 import java.util.Collections;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class Cars {
+
     private final List<Car> cars;
 
     public Cars(List<Car> cars) {
         this.cars = cars;
+    }
+
+    public static Cars fromNames(List<String> carNames) {
+        List<Car> carList = carNames.stream()
+                .map(Car::fromName)
+                .collect(Collectors.toList());
+        return new Cars(carList);
     }
 
     public void moveEachCar(MoveCarStrategy moveCarStrategy) {

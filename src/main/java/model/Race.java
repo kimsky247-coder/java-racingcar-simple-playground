@@ -3,6 +3,7 @@ package model;
 import java.util.List;
 
 public class Race {
+
     private Cars cars;
     private MoveCarStrategy moveCarStrategy;
 

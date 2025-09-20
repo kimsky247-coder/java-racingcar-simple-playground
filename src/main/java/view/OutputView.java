@@ -5,6 +5,7 @@ import model.Car;
 import java.util.List;
 
 public class OutputView {
+
     private static void printName(String carName) {
         System.out.print(carName + " : ");
     }

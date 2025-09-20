@@ -22,8 +22,11 @@
 
 - model
     * Car.java: 자동차 객체 (이름, 위치 상태 및 유효성 검사)
-    * MoveCar.java: 자동차 이동 전략 정의
+    * Cars.java: 자동차 목록을 관리하는 일급 컬렉션
+    * MoveCarStrategy.java: NumberGenerator에 따라 자동차 이동 여부를 결정하는 전략.
     * Race.java: 경주 상태 및 로직 관리
+    * NumberGenerator: 숫자 생성을 위한 인터페이스
+    * RandomNumberGenerator:NumberGenerator의 구현체
 - controller
     * RacingGameController.java: 게임 전체 흐름 관리
 - view

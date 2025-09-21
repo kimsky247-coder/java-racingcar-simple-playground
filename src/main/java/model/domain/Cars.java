@@ -1,4 +1,6 @@
-package model;
+package model.domain;
+
+import model.strategy.MoveCarStrategy;
 
 import java.util.Collections;
 import java.util.List;

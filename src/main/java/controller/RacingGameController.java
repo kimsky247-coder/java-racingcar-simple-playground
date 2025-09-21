@@ -1,14 +1,13 @@
 package controller;
 
-import model.Car;
-import model.Cars;
-import model.MoveCarStrategy;
-import model.NumberGenerator;
-import model.Race;
+import model.domain.Car;
+import model.domain.Cars;
+import model.strategy.MoveCarStrategy;
+import model.strategy.NumberGenerator;
+import model.domain.Race;
 import view.InputView;
 import view.OutputView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RacingGameController {
@@ -24,7 +23,6 @@ public class RacingGameController {
         Race race = new Race(cars, new MoveCarStrategy(numberGenerator));
 
         int rounds = InputView.readRounds();
-        OutputView.printRaceStartMessage();
         runRace(race, rounds);
         OutputView.printWinners(race.getWinners());
 
@@ -37,10 +35,17 @@ public class RacingGameController {
     }
 
     private void runRace(Race race, int rounds) {
+        OutputView.printRaceStartMessage();
         for (int i = 0; i < rounds; i++) {
             race.runRound();
-            OutputView.printRoundResult(race.getCars());
+            printCurrentPositions(race.getCars());        }
+    }
+
+    private void printCurrentPositions(List<Car> cars) {
+        for (Car car : cars) {
+            OutputView.printSingleCarStatus(car.getCarName(), car.getPosition());
         }
+        OutputView.printNewLine();
     }
 
 }

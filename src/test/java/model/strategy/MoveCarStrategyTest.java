@@ -1,5 +1,6 @@
-import model.Car;
-import model.MoveCarStrategy;
+package model.strategy;
+
+import model.domain.Car;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
@@ -7,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@DisplayName("model.MoveCarStrategy 클래스 테스트")
+@DisplayName("model.strategy.MoveCarStrategy 클래스 테스트")
 @SuppressWarnings("NonAsciiCharacters")
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 public class MoveCarStrategyTest {

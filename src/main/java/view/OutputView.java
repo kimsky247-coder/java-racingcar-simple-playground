@@ -1,21 +1,18 @@
 package view;
 
-import model.Car;
+import model.domain.Car;
 
 import java.util.List;
 
 public class OutputView {
 
-    private static void printName(String carName) {
-        System.out.print(carName + " : ");
+    public static void printSingleCarStatus(String name, int position) {
+        System.out.print(name + " : ");
+        printPosition(position);
+        System.out.println();
     }
 
-    public static void printRoundResult(List<Car> cars) {
-        for (Car car : cars) {
-            printName(car.getCarName());
-            printPosition(car.getPosition());
-            System.out.println();
-        }
+    public static void printNewLine() {
         System.out.println();
     }
 

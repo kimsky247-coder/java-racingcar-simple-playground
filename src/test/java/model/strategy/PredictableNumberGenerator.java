@@ -1,4 +1,4 @@
-import model.NumberGenerator;
+package model.strategy;
 
 public class PredictableNumberGenerator implements NumberGenerator {
     private final int fixedNumber;

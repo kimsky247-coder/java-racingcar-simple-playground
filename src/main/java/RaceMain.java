@@ -1,6 +1,6 @@
 import controller.RacingGameController;
-import model.NumberGenerator;
-import model.RandomNumberGenerator;
+import model.strategy.NumberGenerator;
+import model.strategy.RandomNumberGenerator;
 
 public class RaceMain {
     public static void main(String[] args) {
